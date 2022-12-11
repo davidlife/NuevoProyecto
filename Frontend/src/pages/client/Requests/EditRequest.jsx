@@ -66,9 +66,24 @@ export function EditRequest(valor) {
 
 	const {id} = useParams();
 	const requestsxx = useLoaderData();
+	var idx=0;
+	//console.log(requestsxx[id].serviceNumber);
+	for(var i=0; i<requestsxx.length; i++) {
+		
+		//Bucle que recorre el array que está en la posición i
+		for(var j=0; j<20; j++) {
 
-	const requestsx =requestsxx[id-1];
+			if(requestsxx[i].serviceNumber == id){
+				 idx = i;
+			}
+			//console.log(requestsxx[i].serviceNumber);
+		}
+	}
+	console.log(idx);
+	const requestsx =requestsxx[idx];
 
+	
+	
 	return (
 		<section className="flex flex-col items-center justify-center px-6 py-8">
 			<div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-3xl">
